@@ -22,4 +22,6 @@ RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-$SPARK_BIN_VERSION.tgz && \
     rm /spark-$SPARK_BIN_VERSION.tgz
 
 
-# To view available commands on startup, run spark-submit
+# Default action: show available commands on startup
+CMD ["spark-submit"]
+
