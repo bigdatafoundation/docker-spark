@@ -1,6 +1,19 @@
 # docker-ubuntu-spark
 Dockerfile for running Apache Spark on Ubuntu
 
+## Branches
+
+| Branch               | Base Image      | Description               |
+| -------------------- | --------------- | ------------------------- |
+| master               | java:oraclejdk7 | Spark pre-built for Hadoop |
+| spark-for-hadoop     | "             " | Spark pre-built for Hadoop (dev branch) |
+| spark-from-source    | scala:2.10.4    | Spark built from source |
+
+Note: currently the spark-from-source image takes quite a while to build, and generates 2.3 GB of virtual size.
+
+The recommended branch for general use is **master**.
+
+
 ## Building this image
 ```
 git clone https://github.com/GELOG/docker-ubuntu-spark.git
