@@ -26,10 +26,18 @@ docker build --rm=true -t spark:1.1.0-bin-hadoop2.3 .
 ### Spark Master
 Starts the spark master in detached mode (daemon).
 ```
-docker run -d -h spark-master --name spark-master  spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master
+docker run -d -h spark-master --name spark-master  spark:1.1.0-bin-hadoop2.3  \
+    spark-class org.apache.spark.deploy.master.Master
 ```
 
 ### Spark Worker
 ```
-docker run -d -h spark-worker-01 --name spark-worker-01   spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
+docker run -d -h spark-worker-01 --name spark-worker-01   spark:1.1.0-bin-hadoop2.3  \
+    spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
 ```
+
+### Spark Shell
+```
+docker run --rm=true -ti spark:1.1.0-bin-hadoop2.3  spark-shell
+```
+
