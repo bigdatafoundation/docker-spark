@@ -5,7 +5,7 @@
 
 
 # For building this image, See https://github.com/GELOG/docker-ubuntu-java
-FROM gelog/java:oraclejdk7
+FROM gelog/docker-ubuntu-java:oraclejdk7
 
 
 # Spark (1.1.0) binaries prebuilt for Hadoop (2.3)
