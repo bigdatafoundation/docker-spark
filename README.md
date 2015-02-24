@@ -1,3 +1,7 @@
+# Supported tags and respective `Dockerfile` links
+- [`1.0.1-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/tree/1.0.1-bin-hadoop2.3/Dockerfile)
+
+
 # docker-ubuntu-spark
 Dockerfile for running Apache Spark on Ubuntu
 
