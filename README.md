@@ -1,11 +1,41 @@
 # Supported tags and respective `Dockerfile` links
-- [`1.0.1-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/tree/1.0.1-bin-hadoop2.3/Dockerfile)
+- [`1.1.0-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/tree/1.1.0-bin-hadoop2.3/Dockerfile)
 
+# What is Spark ?
+Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala and Python, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including [Spark SQL](https://spark.apache.org/docs/latest/sql-programming-guide.html) for SQL and structured data processing, [MLlib](https://spark.apache.org/docs/latest/mllib-guide.html) for machine learning, [GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html) for graph processing, and [Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html).
 
-# docker-ubuntu-spark
-Dockerfile for running Apache Spark on Ubuntu
+[https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/)
 
-## Branches
+# What is Docker?
+Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, IT can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.
+
+[https://www.docker.com/whatisdocker/](https://www.docker.com/whatisdocker/)
+
+## What is a Docker Image?
+Docker images are the basis of containers. Images are read-only, while containers are writeable. Only the containers can be executed by the operating system.
+
+[https://docs.docker.com/terms/image/](https://docs.docker.com/terms/image/)
+
+# Dependencies
+* [Install Docker](https://docs.docker.com/installation/)
+
+# Base Docker image
+* [gelog/java:oraclejdk7](https://registry.hub.docker.com/u/gelog/java/)
+
+# How to use this image?
+
+### Spark Master
+Starts the spark master in detached mode (daemon).
+```
+docker run -d -h spark-master --name spark-master gelog/spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master
+```
+
+### Spark Worker
+```
+docker run -d -h spark-worker-01 --name spark-worker-01 gelog/spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
+```
+
+# Branches
 
 | Branch               | Base Image      | Description               |
 | -------------------- | --------------- | ------------------------- |
@@ -16,24 +46,3 @@ Dockerfile for running Apache Spark on Ubuntu
 Note: currently the spark-from-source image takes quite a while to build, and generates 2.3 GB of virtual size.
 
 The recommended branch for general use is **master**.
-
-
-## Building this image
-```
-git clone https://github.com/GELOG/docker-ubuntu-spark.git
-cd docker-ubuntu-spark/
-docker build --rm=true -t spark:1.1.0-bin-hadoop2.3 .
-```
-
-## Running this image in a container
-
-### Spark Master
-Starts the spark master in detached mode (daemon).
-```
-docker run -d -h spark-master --name spark-master  spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master
-```
-
-### Spark Worker
-```
-docker run -d -h spark-worker-01 --name spark-worker-01   spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
-```
