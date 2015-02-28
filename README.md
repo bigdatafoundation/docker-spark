@@ -20,7 +20,16 @@ Docker images are the basis of containers. Images are read-only, while container
 * [Install Docker](https://docs.docker.com/installation/)
 
 # Base Docker image
-* [gelog/java:oraclejdk7](https://registry.hub.docker.com/u/gelog/java/)
+
+| Branch               | Base Image      | Description               |
+| -------------------- | --------------- | ------------------------- |
+| master               | [gelog/java:oraclejdk7](https://registry.hub.docker.com/u/gelog/java/) | Spark pre-built for Hadoop |
+| spark-for-hadoop     | "             " | Spark pre-built for Hadoop (dev branch) |
+| spark-from-source    | scala:2.10.4    | Spark built from source |
+
+Note: currently the spark-from-source image takes quite a while to build, and generates 2.3 GB of virtual size.
+
+The recommended branch for general use is **master**.
 
 # How to use this image?
 
@@ -34,15 +43,3 @@ docker run -d -h spark-master --name spark-master gelog/spark:1.1.0-bin-hadoop2.
 ```
 docker run -d -h spark-worker-01 --name spark-worker-01 gelog/spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
 ```
-
-# Branches
-
-| Branch               | Base Image      | Description               |
-| -------------------- | --------------- | ------------------------- |
-| master               | java:oraclejdk7 | Spark pre-built for Hadoop |
-| spark-for-hadoop     | "             " | Spark pre-built for Hadoop (dev branch) |
-| spark-from-source    | scala:2.10.4    | Spark built from source |
-
-Note: currently the spark-from-source image takes quite a while to build, and generates 2.3 GB of virtual size.
-
-The recommended branch for general use is **master**.
