@@ -34,7 +34,6 @@ The recommended branch for general use is **master**.
 # How to use this image?
 
 ### Spark Master
-Starts the spark master in detached mode (daemon).
     docker run -d -h spark-master --name spark-master gelog/spark:1.1.0-bin-hadoop2.3  /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master
 ### Spark Worker
     docker run -d -h spark-worker-01 --name spark-worker-01 gelog/spark:1.1.0-bin-hadoop2.3 /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker  spark://spark-master:7077
