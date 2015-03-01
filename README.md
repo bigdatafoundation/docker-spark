@@ -23,7 +23,7 @@ Docker images are the basis of containers. Images are read-only, while container
 
 | Branch               | Base Image      | Description               |
 | -------------------- | --------------- | ------------------------- |
-| master               | [gelog/java:oraclejdk7](https://registry.hub.docker.com/u/gelog/java/) | Spark pre-built for Hadoop |
+| master               | [gelog/java:openjdk7](https://registry.hub.docker.com/u/gelog/java/) | Spark pre-built for Hadoop |
 | spark-for-hadoop     | "             " | Spark pre-built for Hadoop (dev branch) |
 | spark-from-source    | scala:2.10.4    | Spark built from source |
 
