@@ -2,7 +2,7 @@
 
 [![dockeri.co](http://dockeri.co/image/gelog/spark)](https://registry.hub.docker.com/gelog/spark/)
 
-[GitHub: ![stars](https://img.shields.io/github/stars/apache/spark.svg) ![forks](https://img.shields.io/github/forks/apache/spark.svg) ![issues](https://img.shields.io/github/issues/apache/spark.svg) ](https://github.com/apache/spark)
+[![stars](https://img.shields.io/github/stars/apache/spark.svg) ![forks](https://img.shields.io/github/forks/apache/spark.svg) ![issues](https://img.shields.io/github/issues/apache/spark.svg) ](https://github.com/apache/spark)
 
 ## Supported tags and respective `Dockerfile` links
 - [`1.1.0-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/tree/1.1.0-bin-hadoop2.3/Dockerfile)
