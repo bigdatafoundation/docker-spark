@@ -7,13 +7,19 @@
 # For building this image, See https://github.com/GELOG/docker-ubuntu-java
 FROM gelog/java:openjdk7
 
+MAINTAINER Francois Langelier
 
-# Spark (1.1.0) binaries prebuilt
+ENV WGET_VERSION       1.15-1ubuntu1.14.04.1
 ENV SPARK_VERSION      1.1.0
 ENV SPARK_BIN_VERSION  $SPARK_VERSION-bin-hadoop2.4
 ENV SPARK_HOME         /usr/local/spark
 ENV PATH               $PATH:$SPARK_HOME/bin
 
+# Installing wget
+RUN \
+    apt-get update && \
+    apt-get install -y wget=$WGET_VERSION && \
+    rm -rf /var/lib/apt/lists/*
 
 # Installing Spark for Hadoop
 RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-$SPARK_BIN_VERSION.tgz && \
