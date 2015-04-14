@@ -5,9 +5,9 @@
 [![stars](https://img.shields.io/github/stars/apache/spark.svg) ![forks](https://img.shields.io/github/forks/apache/spark.svg) ![issues](https://img.shields.io/github/issues/apache/spark.svg) ](https://github.com/apache/spark)
 
 ## Supported tags and respective `Dockerfile` links
-- [`1.2.1-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.2.1-bin-hadoop2.3/Dockerfile)
-- [`1.1.0-bin-hadoop2.4`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1.0-bin-hadoop2.4/Dockerfile)
-- [`1.1.0-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1.0-bin-hadoop2.3/Dockerfile)
+- [`1.2-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.2-bin-hadoop2.3/Dockerfile)
+- [`1.1-bin-hadoop2.4`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1-bin-hadoop2.4/Dockerfile)
+- [`1.1-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1-bin-hadoop2.3/Dockerfile)
 
 ## What is Spark ?
 Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala and Python, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including [Spark SQL](https://spark.apache.org/docs/latest/sql-programming-guide.html) for SQL and structured data processing, [MLlib](https://spark.apache.org/docs/latest/mllib-guide.html) for machine learning, [GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html) for graph processing, and [Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html).
@@ -43,9 +43,7 @@ The recommended branch for general use is **master**.
 
 ### Spark Master
     docker run -d --name spark-master -h spark-master -p 8080:8080 -p 7077:7077 \
-    gelog/spark:1.1.0-bin-hadoop2.4 spark-class org.apache.spark.deploy.master.Master
+    gelog/spark:1.2-bin-hadoop2.3 spark-class org.apache.spark.deploy.master.Master
 ### Spark Worker
-[physical_host] is the ip address of the host running the container of the spark master
-
-    docker run -d --name spark-worker1 -h spark-worker1 --add-host=spark-master:[physical_host] \
-    gelog/spark:1.1.0-bin-hadoop2.4 spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    docker run -d --name spark-worker1 -h spark-worker1 --link=hdfs-namenode:hdfs-namenode --link=spark-master:spark-master \
+    gelog/spark:1.2-bin-hadoop2.3 spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
