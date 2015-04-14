@@ -5,7 +5,7 @@
 [![stars](https://img.shields.io/github/stars/apache/spark.svg) ![forks](https://img.shields.io/github/forks/apache/spark.svg) ![issues](https://img.shields.io/github/issues/apache/spark.svg) ](https://github.com/apache/spark)
 
 ## Supported tags and respective `Dockerfile` links
-- [`1.2.0-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.2.0-bin-hadoop2.3/Dockerfile)
+- [`1.2.1-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.2.1-bin-hadoop2.3/Dockerfile)
 - [`1.1.0-bin-hadoop2.4`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1.0-bin-hadoop2.4/Dockerfile)
 - [`1.1.0-bin-hadoop2.3`/Dockerfile](https://github.com/GELOG/docker-ubuntu-spark/blob/master/1.1.0-bin-hadoop2.3/Dockerfile)
 

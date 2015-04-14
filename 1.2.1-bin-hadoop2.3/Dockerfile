@@ -10,7 +10,7 @@ FROM gelog/java:openjdk7
 MAINTAINER Francois Langelier
 
 ENV WGET_VERSION       1.15-1ubuntu1.14.04.1
-ENV SPARK_VERSION      1.2.0
+ENV SPARK_VERSION      1.2.1
 ENV SPARK_BIN_VERSION  $SPARK_VERSION-bin-hadoop2.3
 ENV SPARK_HOME         /usr/local/spark
 ENV PATH               $PATH:$SPARK_HOME/bin
